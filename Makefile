@@ -6,7 +6,7 @@ TAG=v$(VERSION)
 
 ARCHIVE=repeat-and-retry-$(TAG).tar.gz
 ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
-INSTALL_LOCATION=$(PREFIX)/$(SCRIPT)
+FILES=`find bin -type file`
 
 test:
 	bats test
@@ -29,10 +29,9 @@ sha: pkg/$(ARCHIVE)
 	shasum pkg/$(ARCHIVE)
 
 install:
-	mkdir -p $(shell dirname $(INSTALL_LOCATION))
-	cp $(SCRIPT) $(INSTALL_LOCATION)
+	for file in $(FILES); do cp -v $$file $(PREFIX)/$$file; done
 
 uninstall:
-	rm $(INSTALL_LOCATION)
+	for file in $(FILES); do rm -vf $(PREFIX)/$$file; done
 
 .PHONY: test release tag sha install uninstall
