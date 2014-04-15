@@ -1,10 +1,10 @@
-HOMEPAGE=https://github.com/justincampbell/repeat-and-retry
+HOMEPAGE=https://github.com/justincampbell/rr
 PREFIX=/usr/local
 
 VERSION=0.1.0
 TAG=v$(VERSION)
 
-ARCHIVE=repeat-and-retry-$(TAG).tar.gz
+ARCHIVE=rr-$(TAG).tar.gz
 ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
 FILES=`find bin -type file`
 

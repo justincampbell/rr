@@ -1,4 +1,4 @@
-# retry-and-repeat [![Build Status](https://travis-ci.org/justincampbell/repeat-and-retry.svg?branch=master)](https://travis-ci.org/justincampbell/repeat-and-retry)
+# rr [![Build Status](https://travis-ci.org/justincampbell/rr.svg?branch=master)](https://travis-ci.org/justincampbell/rr)
 
 ## `repeat` Repeats a command until it fails
 
@@ -20,11 +20,11 @@
 ## [Homebrew](http://brew.sh)
 
     brew tap justincampbell/formulae
-    brew install repeat-and-retry
+    brew install rr
 
 ## Package
 
-    wget -O repeat-and-retry-latest.tar.gz https://github.com/justincampbell/repeat-and-retry/archive/latest.tar.gz repeat-and-retry
-    tar -zxvf repeat-and-retry-latest.tar.gz
-    cd repeat-and-retry-latest/
+    wget -O rr-latest.tar.gz https://github.com/justincampbell/rr/archive/latest.tar.gz rr
+    tar -zxvf rr-latest.tar.gz
+    cd rr-latest/
     make install
