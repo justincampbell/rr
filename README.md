@@ -4,6 +4,17 @@
 
 ## `retry` Retries a command until it succeeds
 
+# Options
+
+* `-n <seconds>` override sleep in between commands (defaults to 1 second).
+
+# Examples
+
+    $ retry foo # Retry foo every second until it succeeds
+    $ repeat foo # Repeat foo every second until it fails
+    $ retry -n 0 foo # Do not wait any time in between retries
+    $ retry -n 2.5 foo # Wait 2.5 seconds in between retries
+
 # Installation
 
 ## [Homebrew](http://brew.sh)
