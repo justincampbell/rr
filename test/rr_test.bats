@@ -1,7 +1,7 @@
 load test_helper
 
 @test "shows the current time before each command" {
-  run $repeat_and_retry true
+  run $rr true
 
   [ $status -eq 0 ]
 
@@ -9,7 +9,7 @@ load test_helper
 }
 
 @test "allows the user to override the default sleep setting" {
-  run $repeat_and_retry -n 0 true
+  run $rr -n 0 true
 
   [ $status -eq 0 ]
 }

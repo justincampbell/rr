@@ -1,0 +1,32 @@
+#!/usr/bin/env sh
+
+OPTIND=1
+
+rr_exit_code=0
+rr_sleep_duration=1
+
+while getopts "01n:" opt; do
+  case "$opt" in
+    0)
+      rr_exit_code=0
+      ;;
+    1)
+      rr_exit_code=1
+      ;;
+    n)
+      rr_sleep_duration=$OPTARG
+      ;;
+  esac
+done
+
+shift $((OPTIND-1))
+
+while true; do
+  date
+
+  $*
+
+  if [ $? == $rr_exit_code ]; then exit $rr_exit_code; fi
+
+  sleep $rr_sleep_duration
+done
