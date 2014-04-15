@@ -2,6 +2,7 @@
 
 OPTIND=1
 
+code=0
 every=1
 
 while getopts "01n:" opt; do

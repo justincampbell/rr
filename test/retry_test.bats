@@ -12,17 +12,3 @@ load test_helper
 
   [ $status -eq 0 ]
 }
-
-@test "retry shows the current time before each command" {
-  run $retry true
-
-  [ $status -eq 0 ]
-
-  echo $output | grep `date '+%Y'`
-}
-
-@test "retry allows the user to override the default sleep setting" {
-  run $retry -n 0 true
-
-  [ $status -eq 0 ]
-}
