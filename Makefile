@@ -29,6 +29,7 @@ sha: pkg/$(ARCHIVE)
 	shasum pkg/$(ARCHIVE)
 
 install:
+	mkdir -p $(PREFIX)/bin
 	for file in $(FILES); do cp -v $$file $(PREFIX)/$$file; done
 
 uninstall:
