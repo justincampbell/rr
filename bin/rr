@@ -6,6 +6,7 @@ OPTIND=1
 
 desired_status=0
 sleep_duration=1
+quiet=0
 
 show_help() {
   echo "rr"
@@ -16,7 +17,7 @@ show_help() {
   echo "    retry   Retry a command until it succeeds"
 }
 
-while getopts "01hn:" opt; do
+while getopts "01hn:q" opt; do
   case "$opt" in
     0)
       desired_status=0
@@ -31,6 +32,9 @@ while getopts "01hn:" opt; do
     n)
       sleep_duration=$OPTARG
       ;;
+    q)
+      quiet=1
+      ;;
   esac
 done
 
@@ -42,7 +46,9 @@ if [ -z "$@" ]; then
 fi
 
 while true; do
-  date
+  if [ $quiet -eq 0 ]; then
+    date
+  fi
 
   set +e
   $@; status=$?
