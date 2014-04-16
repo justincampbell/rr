@@ -13,3 +13,19 @@ load test_helper
 
   [ $status -eq 0 ]
 }
+
+@test "shows help when given no options" {
+  run $rr
+
+  echo $output | grep "Usage:"
+  echo $output | grep -v `date '+%Y'`
+  [ $status -eq 1 ]
+}
+
+@test "shows help when -h is passed" {
+  run $rr -h
+
+  echo $output | grep "Usage:"
+  echo $output | grep -v `date '+%Y'`
+  [ $status -eq 0 ]
+}
