@@ -11,3 +11,9 @@ load test_helper
 
   [ $status -eq 1 ]
 }
+
+@test "repeat bubbles up the same error code from failures" {
+  run $repeat foobar
+
+  [ $status -eq 127 ]
+}

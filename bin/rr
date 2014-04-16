@@ -2,19 +2,19 @@
 
 OPTIND=1
 
-rr_exit_code=0
-rr_sleep_duration=1
+desired_status=0
+sleep_duration=1
 
 while getopts "01n:" opt; do
   case "$opt" in
     0)
-      rr_exit_code=0
+      desired_status=0
       ;;
     1)
-      rr_exit_code=1
+      desired_status=1
       ;;
     n)
-      rr_sleep_duration=$OPTARG
+      sleep_duration=$OPTARG
       ;;
   esac
 done
@@ -24,9 +24,14 @@ shift $((OPTIND-1))
 while true; do
   date
 
-  $*
+  $@
+  status=$?
 
-  if [ $? == $rr_exit_code ]; then exit $rr_exit_code; fi
+  if [ $status == 0 ]; then
+    if [ $desired_status == 0 ]; then exit 0; fi
+  else
+    if [ $desired_status == 1 ]; then exit $status; fi
+  fi
 
-  sleep $rr_sleep_duration
+  sleep $sleep_duration
 done
