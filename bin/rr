@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 OPTIND=1
 
 desired_status=0
@@ -24,8 +26,9 @@ shift $((OPTIND-1))
 while true; do
   date
 
-  $@
-  status=$?
+  set +e
+  $@; status=$?
+  set -e
 
   if [ $status = 0 ]; then
     if [ $desired_status = 0 ]; then exit 0; fi
