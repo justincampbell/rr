@@ -7,13 +7,26 @@ OPTIND=1
 desired_status=0
 sleep_duration=1
 
-while getopts "01n:" opt; do
+show_help() {
+  echo "rr"
+  echo "github.com/justincampbell/rr"
+  echo ""
+  echo "  Usage:"
+  echo "    repeat  Repeat a command until it fails"
+  echo "    retry   Retry a command until it succeeds"
+}
+
+while getopts "01hn:" opt; do
   case "$opt" in
     0)
       desired_status=0
       ;;
     1)
       desired_status=1
+      ;;
+    h)
+      show_help
+      exit 0
       ;;
     n)
       sleep_duration=$OPTARG
@@ -22,6 +35,11 @@ while getopts "01n:" opt; do
 done
 
 shift $((OPTIND-1))
+
+if [[ "$@" == "" ]]; then
+  show_help
+  exit 1
+fi
 
 while true; do
   date
