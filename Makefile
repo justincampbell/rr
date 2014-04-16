@@ -8,6 +8,8 @@ ARCHIVE=rr-$(TAG).tar.gz
 ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
 FILES=`find bin -type file`
 
+export PATH := bin:$(PATH)
+
 test:
 	bats test
 
