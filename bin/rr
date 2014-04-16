@@ -27,10 +27,10 @@ while true; do
   $@
   status=$?
 
-  if [ $status == 0 ]; then
-    if [ $desired_status == 0 ]; then exit 0; fi
+  if [ $status = 0 ]; then
+    if [ $desired_status = 0 ]; then exit 0; fi
   else
-    if [ $desired_status == 1 ]; then exit $status; fi
+    if [ $desired_status = 1 ]; then exit $status; fi
   fi
 
   sleep $sleep_duration
