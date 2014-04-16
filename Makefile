@@ -1,7 +1,7 @@
 HOMEPAGE=https://github.com/justincampbell/rr
 PREFIX=/usr/local
 
-VERSION=0.2.0
+VERSION=0.2.1
 TAG=v$(VERSION)
 
 ARCHIVE=rr-$(TAG).tar.gz
