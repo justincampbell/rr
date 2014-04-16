@@ -17,7 +17,7 @@ load test_helper
 @test "shows help when given no options" {
   run $rr
 
-  echo $output | grep "rr"
+  echo $output | grep "Usage:"
   echo $output | grep -v `date '+%Y'`
   [ $status -eq 1 ]
 }
@@ -25,7 +25,7 @@ load test_helper
 @test "shows help when -h is passed" {
   run $rr -h
 
-  echo $output | grep "rr"
+  echo $output | grep "Usage:"
   echo $output | grep -v `date '+%Y'`
   [ $status -eq 0 ]
 }
