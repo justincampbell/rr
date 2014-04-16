@@ -10,5 +10,5 @@ setup() {
 }
 
 teardown() {
-  echo $output
+  echo $status: $output
 }
