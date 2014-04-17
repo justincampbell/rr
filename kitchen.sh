@@ -8,7 +8,7 @@ package() {
   fi
 }
 
-package git-core make
+package git-core make time
 
 git clone https://github.com/sstephenson/bats.git /tmp/bats && \
   cd /tmp/bats && \
