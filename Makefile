@@ -13,6 +13,10 @@ export PATH := bin:$(PATH)
 test:
 	bats test
 
+docker:
+	docker build -t rr .
+	docker run rr
+
 release: tag sha
 
 tag:
@@ -37,4 +41,4 @@ install:
 uninstall:
 	for file in $(FILES); do rm -vf $(PREFIX)/$$file; done
 
-.PHONY: test release tag sha install uninstall
+.PHONY: test docker release tag sha install uninstall
