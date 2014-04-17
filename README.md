@@ -6,15 +6,16 @@
 
 # Options
 
-* `-n <seconds>` override sleep in between commands (defaults to 1 second)
-* `-q` hide timestamps
+    -c <count>    limit the number of times the command is run
+    -n <seconds>  override sleep in between commands (defaults to 1 second)
+    -q            hide timestamps
 
 # Examples
 
     $ retry foo # Retry foo every second until it succeeds
     $ repeat foo # Repeat foo every second until it fails
-    $ retry -n 0 foo # Do not wait any time in between retries
     $ retry -n 2.5 foo # Wait 2.5 seconds in between retries
+    $ retry -c 10 -n 0 foo # Run foo 10 times as fast as possible
 
 # Installation
 

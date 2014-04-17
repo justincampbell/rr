@@ -17,3 +17,9 @@ load test_helper
 
   [ $status -eq 127 ]
 }
+
+@test "repeat returns 0 when a count is reached" {
+  run $repeat -c 2 -n 0 true
+
+  [ $status -eq 0 ]
+}

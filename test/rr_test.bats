@@ -16,9 +16,16 @@ load test_helper
   echo $output | grep -v `date '+%Y'`
 }
 
-@test "allows the user to override the default sleep setting" {
-  run $rr -n 0 true
+@test "allows the user to limit how many times the command is run" {
+  run $rr -c 3 -n 0 false
 
+  echo "$output" | wc -l | grep 3
+}
+
+@test "allows the user to override the default sleep setting" {
+  run time $rr -n 0 true
+
+  echo $output | grep -v "1\."
   [ $status -eq 0 ]
 }
 

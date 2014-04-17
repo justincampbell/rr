@@ -16,17 +16,21 @@ show_help() {
   echo "  retry   Retry a command until it succeeds"
   echo ""
   echo "  Options:"
+  echo "    -c <count>    limit the number of times the command is run"
   echo "    -n <seconds>  override sleep in between commands (defaults to 1 second)"
   echo "    -q            hide timestamps"
 }
 
-while getopts "01hn:q" opt; do
+while getopts "01c:hn:q" opt; do
   case "$opt" in
     0)
       desired_status=0
       ;;
     1)
       desired_status=1
+      ;;
+    c)
+      count=$OPTARG
       ;;
     h)
       show_help
@@ -61,6 +65,12 @@ while true; do
     if [ $desired_status = 0 ]; then exit 0; fi
   else
     if [ $desired_status = 1 ]; then exit $status; fi
+  fi
+
+  if [ "$count" != "" ]; then
+    count=$(($count - 1))
+
+    if [ "$count" = "0" ]; then exit $status; fi
   fi
 
   sleep $sleep_duration

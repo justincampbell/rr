@@ -12,3 +12,9 @@ load test_helper
 
   [ $status -eq 0 ]
 }
+
+@test "retry returns the error code when a count is reached" {
+  run $retry -c 2 -n 0 foobar
+
+  [ $status -eq 127 ]
+}
