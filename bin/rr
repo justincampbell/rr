@@ -12,9 +12,12 @@ show_help() {
   echo "rr"
   echo "github.com/justincampbell/rr"
   echo ""
-  echo "  Usage:"
-  echo "    repeat  Repeat a command until it fails"
-  echo "    retry   Retry a command until it succeeds"
+  echo "  repeat  Repeat a command until it fails"
+  echo "  retry   Retry a command until it succeeds"
+  echo ""
+  echo "  Options:"
+  echo "    -n <seconds>  override sleep in between commands (defaults to 1 second)"
+  echo "    -q            hide timestamps"
 }
 
 while getopts "01hn:q" opt; do

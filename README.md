@@ -6,7 +6,8 @@
 
 # Options
 
-* `-n <seconds>` override sleep in between commands (defaults to 1 second).
+* `-n <seconds>` override sleep in between commands (defaults to 1 second)
+* `-q` hide timestamps
 
 # Examples
 
