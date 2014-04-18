@@ -5,8 +5,9 @@ set -e
 OPTIND=1
 
 desired_status=0
-sleep_duration=1
 quiet=0
+reset=0
+sleep_duration=1
 
 show_help() {
   echo "rr"
@@ -18,10 +19,11 @@ show_help() {
   echo "  Options:"
   echo "    -c <count>    limit the number of times the command is run"
   echo "    -n <seconds>  override sleep in between commands (defaults to 1 second)"
+  echo "    -r            clear the screen before each command run"
   echo "    -q            hide timestamps"
 }
 
-while getopts "01c:hn:q" opt; do
+while getopts "01c:hn:qr" opt; do
   case "$opt" in
     0)
       desired_status=0
@@ -42,6 +44,9 @@ while getopts "01c:hn:q" opt; do
     q)
       quiet=1
       ;;
+    r)
+      reset=1
+      ;;
   esac
 done
 
@@ -53,6 +58,10 @@ if [ -z "$@" ]; then
 fi
 
 while true; do
+  if [ $reset -eq 1 ]; then
+    clear
+  fi
+
   if [ $quiet -eq 0 ]; then
     date
   fi

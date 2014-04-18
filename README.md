@@ -8,6 +8,7 @@
 
     -c <count>    limit the number of times the command is run
     -n <seconds>  override sleep in between commands (defaults to 1 second)
+    -r            clear the screen before each command run
     -q            hide timestamps
 
 # Examples
