@@ -52,7 +52,7 @@ done
 
 shift $((OPTIND-1))
 
-if [ -z "$@" ]; then
+if [ -z "$*" ]; then
   show_help
   exit 1
 fi

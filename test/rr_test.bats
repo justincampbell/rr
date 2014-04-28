@@ -55,3 +55,10 @@ load test_helper
   verify_not_called date
   [ $status -eq 0 ]
 }
+
+@test "supports commands with spaces" {
+  run $rr -q true 123
+
+  [ "$output" = "" ]
+  [ $status -eq 0 ]
+}
