@@ -6,7 +6,7 @@ TAG=v$(VERSION)
 
 ARCHIVE=rr-$(TAG).tar.gz
 ARCHIVE_URL=$(HOMEPAGE)/archive/$(TAG).tar.gz
-FILES=`find bin -type file`
+FILES=`find bin -type f`
 
 export PATH := bin:$(PATH)
 
