@@ -13,10 +13,10 @@
 
 # Examples
 
-    $ retry foo # Retry foo every second until it succeeds
-    $ repeat foo # Repeat foo every second until it fails
-    $ retry -n 2.5 foo # Wait 2.5 seconds in between retries
-    $ retry -c 10 -n 0 foo # Run foo 10 times as fast as possible
+    $ rr retry foo # Retry foo every second until it succeeds
+    $ rr repeat foo # Repeat foo every second until it fails
+    $ rr retry -n 2.5 foo # Wait 2.5 seconds in between retries
+    $ rr retry -c 10 -n 0 foo # Run foo 10 times as fast as possible
 
 # Installation
 
